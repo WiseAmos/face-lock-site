@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#040404" />
+  <meta name="color-scheme" content="dark" />
+  <title>face-lock · your laptop only unlocks for you</title>
+  <meta name="description" content="face-lock is a free, open-source CLI that auto-locks your laptop when you walk away. Face-recognition powered. macOS · Windows · Linux. No telemetry. No network calls. npm install -g face-lock." />
+  <meta property="og:title" content="face-lock · your laptop only unlocks for you" />
+  <meta property="og:description" content="Walk away → screen dims → OS lock. Walk back → it's you. Free, open source, no telemetry." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://face-lock.dev" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23040404'/%3E%3Cpath d='M16 7c-3 0-5 2-5 5v3H9v10h14V15h-2v-3c0-3-2-5-5-5zm-3 8v-3a3 3 0 116 0v3h-6z' fill='%23ffffff'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <!-- ============== TOP NAV ============== -->
+  <header class="nav" id="top">
+    <a class="brand" href="#top" aria-label="face-lock home">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 6c-3.3 0-5.5 2.4-5.5 5.5V14H9v12h14V14h-1.5v-2.5C21.5 8.4 19.3 6 16 6z" />
+          <path d="M13 14v-2.5a3 3 0 116 0V14" />
+          <circle cx="16" cy="20" r="1.2" fill="currentColor" stroke="none" />
+        </svg>
+      </span>
+      <span class="brand__word">face-lock</span>
+    </a>
+    <nav class="nav__links" aria-label="primary">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#install">Install</a>
+      <a href="https://github.com/WiseAmos/face-lock" rel="noopener" target="_blank">GitHub ↗</a>
+    </nav>
+    <a class="cta cta--small" href="#install">npm i -g face-lock</a>
+  </header>
+
+  <!-- ============== HERO ============== -->
+  <section class="hero" aria-labelledby="hero-headline">
+    <p class="hero__eyebrow"><span class="dot"></span>face-lock · v0.2.0 · open source</p>
+
+    <h1 id="hero-headline" class="hero__headline">
+      <span class="dim">your laptop only</span>
+      <span class="bright">unlocks for <em>you</em>.</span>
+    </h1>
+
+    <p class="hero__sub">
+      Walk away and your screen dims in 2 seconds. Come back in 15 and it unlocks for you.
+      Don't come back and the OS locks. It's face recognition — not a password, not a timer, not a sticker on your laptop.
+    </p>
+
+    <div class="hero__ctas">
+      <a class="cta cta--primary" href="#install">
+        <span>Install</span>
+        <span class="cta__sub">npm i -g face-lock</span>
+      </a>
+      <a class="cta cta--ghost" href="https://github.com/WiseAmos/face-lock" rel="noopener" target="_blank">
+        <span>View on GitHub</span>
+        <span class="cta__sub">MIT · 43 tests passing</span>
+      </a>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <div class="orb"></div>
+      <div class="orb orb--2"></div>
+      <div class="orb orb--3"></div>
+      <pre class="terminal" aria-label="terminal preview">
+<span class="t-dim">$</span> <span class="t-cmd">facecheck</span>
+<span class="t-out">  no enrolled profile yet — running setup wizard.</span>
+<span class="t-out">  looking at the camera…</span>
+<span class="t-out">  enrolled ✔ (descriptor saved to ~/.face-lock/profile.json)</span>
+<span class="t-out">  starting monitor…</span>
+<span class="t-out">  ✔ you</span>                          <span class="t-dim">| 14:22:01</span>
+<span class="t-out">  ✔ you</span>                          <span class="t-dim">| 14:22:02</span>
+<span class="t-out">  • away</span>                         <span class="t-dim">| 14:22:18</span>
+<span class="t-out">  ↘ dim</span>                          <span class="t-dim">| 14:22:20</span>
+<span class="t-out">  ↘ locking</span>                      <span class="t-dim">| 14:22:33</span>
+<span class="t-out">  locked ✔</span>                       <span class="t-dim">| 14:22:33</span></pre>
+    </div>
+  </section>
+
+  <!-- ============== TICKER ============== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__inner">
+      <span>macOS</span><span>·</span><span>Windows</span><span>·</span><span>Linux</span><span>·</span>
+      <span>face-api.js</span><span>·</span><span>WebGL</span><span>·</span><span>Skia</span><span>·</span>
+      <span>no telemetry</span><span>·</span><span>no network</span><span>·</span><span>no account</span><span>·</span>
+      <span>open source</span><span>·</span><span>MIT</span><span>·</span>
+      <span>macOS</span><span>·</span><span>Windows</span><span>·</span><span>Linux</span><span>·</span>
+      <span>face-api.js</span><span>·</span><span>WebGL</span><span>·</span><span>Skia</span><span>·</span>
+      <span>no telemetry</span><span>·</span><span>no network</span><span>·</span><span>no account</span><span>·</span>
+      <span>open source</span><span>·</span><span>MIT</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- ============== HOW IT WORKS ============== -->
+  <section class="section" id="how" aria-labelledby="how-title">
+    <header class="section__head">
+      <p class="section__eyebrow">How it works</p>
+      <h2 id="how-title" class="section__title">Three states. <span class="dim">That's the whole thing.</span></h2>
+    </header>
+
+    <div class="state-machine" role="img" aria-label="state machine: PRESENT, GRACE, LOCKED">
+      <div class="state state--present">
+        <p class="state__label">PRESENT</p>
+        <p class="state__title">You're there</p>
+        <p class="state__body">Webcam sees your face and matches it to the enrolled 128-D descriptor. Nothing happens. You're working.</p>
+      </div>
+      <svg class="state__arrow" viewBox="0 0 40 12" aria-hidden="true">
+        <path d="M0 6 H32 M28 2 L32 6 L28 10" stroke="currentColor" stroke-width="1.2" fill="none" />
+      </svg>
+      <div class="state state--grace">
+        <p class="state__label">GRACE</p>
+        <p class="state__title">You stepped away</p>
+        <p class="state__body">Screen dims after 2 s. You have 15 s to come back. If you do, state returns to PRESENT. If you don't, we lock.</p>
+      </div>
+      <svg class="state__arrow" viewBox="0 0 40 12" aria-hidden="true">
+        <path d="M0 6 H32 M28 2 L32 6 L28 10" stroke="currentColor" stroke-width="1.2" fill="none" />
+      </svg>
+      <div class="state state--locked">
+        <p class="state__label">LOCKED</p>
+        <p class="state__title">OS password</p>
+        <p class="state__body">Hard OS lock fires. Only your password comes back. We never auto-unlock after a hard lock — that would defeat the point.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FEATURES ============== -->
+  <section class="section" id="features" aria-labelledby="features-title">
+    <header class="section__head">
+      <p class="section__eyebrow">Features</p>
+      <h2 id="features-title" class="section__title">Built for the people who forget to <span class="dim">⌘+⌃+Q</span>.</h2>
+    </header>
+
+    <div class="grid">
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1.2-3.4 4-5 7-5s5.8 1.6 7 5"/></svg>
+        </div>
+        <h3 class="card__title">Matches <em>your</em> face</h3>
+        <p class="card__body">Not "any face in frame" — a 128-D descriptor generated from your enrollment, matched every 500 ms with a Euclidean distance threshold.</p>
+        <p class="card__meta">face-api.js · SSD MobileNet · 68-pt landmarks</p>
+      </article>
+
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M8 9V6a4 4 0 018 0v3"/></svg>
+        </div>
+        <h3 class="card__title">Liveness check, default ON</h3>
+        <p class="card__body">Catches printed photos and phone-on-screen attacks. No extra ~5 MB model — uses the texture variance of your face crop plus 1.5 s of landmark jitter.</p>
+        <p class="card__meta">on by default · no flag exposed · tunable in config</p>
+      </article>
+
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 12s3-6 10-6 10 6 10 6-3 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.5"/></svg>
+        </div>
+        <h3 class="card__title">Shoulder-surf dim</h3>
+        <p class="card__body">Two opt-in triggers: <code>--away-dim</code> for when you turn your head to talk to someone, <code>--multi-face-dim</code> when someone stands behind you.</p>
+        <p class="card__meta">opt-in · dims only, never locks · off by default</p>
+      </article>
+
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 12l4 4L21 4"/></svg>
+        </div>
+        <h3 class="card__title">Cross-platform, real installs</h3>
+        <p class="card__body">macOS, Linux, Windows. Native camera capture via bundled ffmpeg (no system ffmpeg needed). One command installs it as a login service.</p>
+        <p class="card__meta">macOS · Linux · Windows · Node 18–24</p>
+      </article>
+
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2l3 5 6 1-4.5 4 1 6L12 15.5 6.5 18l1-6L3 8l6-1z"/></svg>
+        </div>
+        <h3 class="card__title">Zero telemetry. Zero network.</h3>
+        <p class="card__body">Your face descriptor never leaves the machine. It's stored at <code>~/.face-lock/profile.json</code> (mode 0600). The only network call is a self-update check you can disable.</p>
+        <p class="card__meta">FACE_LOCK_NO_UPDATE_CHECK=1 to opt out</p>
+      </article>
+
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 3l-2 18M16 3l2 18M3 8h18M3 16h18"/></svg>
+        </div>
+        <h3 class="card__title">One short command</h3>
+        <p class="card__body">Bare <code>facecheck</code> from any terminal — if you have a profile enrolled, it starts the monitor. If you don't, it walks you through setup. Like <code>opencode</code> for screen lock.</p>
+        <p class="card__meta">facecheck · face-lock · interactive wizard</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============== INSTALL ============== -->
+  <section class="section section--install" id="install" aria-labelledby="install-title">
+    <header class="section__head">
+      <p class="section__eyebrow">Install</p>
+      <h2 id="install-title" class="section__title">One line. <span class="dim">Then it just runs.</span></h2>
+    </header>
+
+    <div class="install">
+      <div class="install__step">
+        <p class="install__num">01</p>
+        <p class="install__label">Install globally</p>
+        <div class="install__cmd">
+          <span class="prompt">$</span>
+          <code>npm install -g face-lock</code>
+          <button class="copy" data-copy="npm install -g face-lock" aria-label="copy command">copy</button>
+        </div>
+      </div>
+
+      <div class="install__step">
+        <p class="install__num">02</p>
+        <p class="install__label">Run the wizard (one time)</p>
+        <div class="install__cmd">
+          <span class="prompt">$</span>
+          <code>facecheck</code>
+          <button class="copy" data-copy="facecheck" aria-label="copy command">copy</button>
+        </div>
+        <p class="install__hint">Look at the camera for ~5 s. We capture 3 frames, average the descriptor, save it to <code>~/.face-lock/profile.json</code>.</p>
+      </div>
+
+      <div class="install__step">
+        <p class="install__num">03</p>
+        <p class="install__label">Install as a login service (optional)</p>
+        <div class="install__cmd">
+          <span class="prompt">$</span>
+          <code>facecheck install</code>
+          <button class="copy" data-copy="facecheck install" aria-label="copy command">copy</button>
+        </div>
+        <p class="install__hint">Registers a launchd / systemd / Task Scheduler entry that starts the monitor at login. Uninstall with <code>facecheck uninstall</code>.</p>
+      </div>
+    </div>
+
+    <div class="install__cta">
+      <a class="cta cta--primary cta--big" href="https://www.npmjs.com/package/face-lock" rel="noopener" target="_blank">
+        <span>npm i -g face-lock</span>
+        <span class="cta__sub">view on npm</span>
+      </a>
+      <a class="cta cta--ghost" href="https://github.com/WiseAmos/face-lock" rel="noopener" target="_blank">
+        <span>Read the docs</span>
+        <span class="cta__sub">github.com/WiseAmos/face-lock</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="foot" id="contact">
+    <div class="foot__col">
+      <a class="brand" href="#top">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 6c-3.3 0-5.5 2.4-5.5 5.5V14H9v12h14V14h-1.5v-2.5C21.5 8.4 19.3 6 16 6z" />
+            <path d="M13 14v-2.5a3 3 0 116 0V14" />
+          </svg>
+        </span>
+        <span class="brand__word">face-lock</span>
+      </a>
+      <p class="foot__tag">Walk away. It locks. Walk back. It's you.</p>
+    </div>
+
+    <div class="foot__col">
+      <p class="foot__title">Project</p>
+      <a href="https://github.com/WiseAmos/face-lock" rel="noopener" target="_blank">GitHub</a>
+      <a href="https://www.npmjs.com/package/face-lock" rel="noopener" target="_blank">npm</a>
+      <a href="https://github.com/WiseAmos/face-lock/blob/main/CHANGELOG.md" rel="noopener" target="_blank">Changelog</a>
+    </div>
+
+    <div class="foot__col">
+      <p class="foot__title">Resources</p>
+      <a href="https://github.com/WiseAmos/face-lock#readme" rel="noopener" target="_blank">README</a>
+      <a href="https://github.com/WiseAmos/face-lock/blob/main/docs/v0.2.0-napi-rewrite-scope.md" rel="noopener" target="_blank">v0.2.0 scope</a>
+      <a href="https://github.com/WiseAmos/face-lock/issues" rel="noopener" target="_blank">Issues</a>
+    </div>
+
+    <div class="foot__col foot__col--end">
+      <p class="foot__title">Get the latest</p>
+      <form class="subscribe" onsubmit="event.preventDefault(); this.querySelector('button').textContent='subscribed ✔'; this.querySelector('input').value='';">
+        <input type="email" required placeholder="you@domain.com" aria-label="email address" />
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="foot__note">Release notes only. No marketing. Unsubscribe by deleting the cookie.</p>
+    </div>
+  </footer>
+
+  <p class="foot__base">
+    <span>© 2026 Amos Goh · MIT licensed</span>
+    <span class="dotlive"><span class="dotlive__inner"></span> all systems operational</span>
+  </p>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
